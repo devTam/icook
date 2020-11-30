@@ -10,6 +10,7 @@ function App() {
   const [recipeList, setRecipeList] = useState([]);
   const [searchedTerm, setSearchedTerm] = useState('');
   const [errorMsg, setErrorMsg] = useState('')
+  const [loading, setLoading] = useState(false);
 
   const getSearchedTerm = (text) => {
     setSearchedTerm(text);
@@ -19,16 +20,18 @@ function App() {
       const fetchMeal = async() => {
         try {
           
-  
+          setLoading(true)
             const req = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedTerm}`)
             const data = await req.json();
          
             if(data.meals) {
               setRecipeList(data.meals)
               setErrorMsg('')
+              setLoading(false)
             }else {
               setErrorMsg('Oops! Can not find that recipe. Try another.')
               setRecipeList([])
+              setLoading(false);
             }
     
         } catch(error) {
@@ -58,7 +61,7 @@ function App() {
       <Preloader />
       <Navigation />
       <Search getSearchedTerm={getSearchedTerm} />
-      <Recipes recipeList={recipeList} />
+      <Recipes recipeList={recipeList} errorMsg={errorMsg} loading={loading} />
     </div>
   );
 }

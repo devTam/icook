@@ -1,10 +1,20 @@
 import React from 'react'
 import './recipes.css';
 import { Link } from 'react-router-dom';
+import Loader from "../loader/Loader";
 
 
-const Recipes = ({ recipeList }) => (
+const Recipes = ({ recipeList, errorMsg, loading }) => (
     <div className="container">
+        {
+            loading ? <Loader /> : ''
+        }
+        <div className="error-container">
+        {
+            errorMsg && <div className="alert alert-danger my-4 text-center error">{errorMsg}</div>
+        }
+
+        </div>
         <div className="row">
 
             {   recipeList  &&

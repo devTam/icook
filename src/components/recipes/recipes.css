@@ -1,8 +1,17 @@
 .recipe {
     border-radius: 5px;
-    /* background-color: #fff; */
     margin: 30px 10px;
     padding: 5px;
+}
+
+.error-container {
+    display: grid;
+    place-content: center;
+}
+
+.error {
+    display: inline-block;
+    
 }
 
 .recipe-display {
@@ -20,6 +29,7 @@
 
 .recipe-title {
     font-weight: bold;
+    padding: 10px;
     font-size: 18px;
     color: #fff;
     background-color: rgba(0,0,0,0.5);

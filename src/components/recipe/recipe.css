@@ -1,0 +1,119 @@
+
+
+.active-recipe {
+    background-color: #e5e5e5;
+    margin: 0 auto;
+    padding: 20vh 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.25);
+}
+
+.active-recipe-image {
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.25);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+.active-recipe-subtitle {
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.ingr-title {
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.ingr ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ingr li {
+    display: inline-block;
+    padding: 5px;
+    margin: 0 10px 10px 0;
+}
+
+.instr {
+    width: 100%;
+}
+
+.instr-text {
+    line-height: 30px;
+    width: 640px;
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    
+}
+
+.video {
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.video-title {
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.videobox {
+    margin: 0 auto;
+    box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.25);
+
+}
+
+@media only screen and (max-width: 992px) {
+    .active-recipe {
+        padding: 10px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .col-lg-5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .active-recipe-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .active-recipe-desc hr {
+        width: 100%;
+    }
+
+    .active-recipe img {
+        margin-bottom: 20px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .ingr li {
+        
+        margin: 0 5px 5px 0;
+        font-size: 14px;
+    }
+    
+    .instr-text {
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+    .videobox {
+        width: 100% !important;
+    }
+}

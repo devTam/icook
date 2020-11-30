@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./recipe.css";
 import ReactPlayer from "react-player";
+import ProgressiveImage from "react-progressive-image";
 
 const Recipe = ({ location }) => {
   const [meal, setMeal] = useState([]);
@@ -44,11 +45,26 @@ const Recipe = ({ location }) => {
       <div className="container my-5">
         <div className="row active-recipe">
           <div className="col-lg-5">
-            <img
-              className="active-recipe-image img-fluid"
-              src={meal.strMealThumb}
-              alt={meal.strMeal}
-            />
+            <ProgressiveImage src={meal.strMealThumb} placeholder={meal.idMeal}>
+              {(src) => {
+                return (
+                  <div>
+                    <img
+                      className="progressive-image recipe-image img-fluid"
+                      src={src}
+                      alt={recipe.idMeal}
+                    />
+                    <noscript>
+                      <img
+                        className="progressive-image recipe-image img-fluid no-script"
+                        src={src}
+                        alt={meal.idMeal}
+                      />
+                    </noscript>
+                  </div>
+                );
+              }}
+            </ProgressiveImage>
           </div>
           <div className="col-lg-7">
             <div className="active-recipe-desc">

@@ -2,6 +2,7 @@ import React from "react";
 import "./recipes.css";
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
+import ProgressiveImage from "react-progressive-image";
 
 const Recipes = ({ recipeList, errorMsg, loading }) => (
   <div className="container">
@@ -19,11 +20,24 @@ const Recipes = ({ recipeList, errorMsg, loading }) => (
           <div className="col-md-4" key={recipe.idMeal}>
             <div className="recipe">
               <div className="recipe-display">
-                <img
-                  className="recipe-image img-fluid"
+                <ProgressiveImage
                   src={recipe.strMealThumb}
-                  alt={recipe.idMeal}
-                />
+                  placeholder={recipe.idMeal}
+                >
+                  {(src) => {
+                    return (
+                      <div>
+                        <img className="progressive-image recipe-image img-fluid" src={src} alt={recipe.idMeal}/>
+                        <noscript>
+                          <img
+                            className="progressive-image recipe-image img-fluid no-script"
+                            src={src} alt={recipe.idMeal}
+                          />
+                        </noscript>
+                      </div>
+                    );
+                  }}
+                </ProgressiveImage>
                 <Link
                   to={{
                     pathname: `/recipe/${recipe.idMeal}`,

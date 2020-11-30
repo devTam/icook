@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import Navigation from "./components/navigation/Navigation";
 import Preloader from "./components/preloader/Preloader";
 import Search from './components/search/Search';
 import Recipes from './components/recipes/Recipes';
@@ -13,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const getSearchedTerm = (text) => {
+    // Get searched term from search component and store in state
     setSearchedTerm(text);
   }
 
@@ -44,11 +44,13 @@ function App() {
   }, [searchedTerm])
 
   useEffect(() => {
+    // Get item from local storage on page load
     let recipeFromStorage = JSON.parse(localStorage.getItem("recipeList"));
     setRecipeList(recipeFromStorage)
   }, [])
 
   useEffect(() => {
+    // Store result in local storage for persistence
     const recipes = JSON.stringify(recipeList);
     localStorage.setItem("recipeList", recipes)
   }, [recipeList])
@@ -59,7 +61,6 @@ function App() {
   return (
     <div className="App">
       <Preloader />
-      <Navigation />
       <Search getSearchedTerm={getSearchedTerm} />
       <Recipes recipeList={recipeList} errorMsg={errorMsg} loading={loading} />
     </div>

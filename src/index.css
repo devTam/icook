@@ -8,5 +8,6 @@ body {
   margin: 0;
   font-family: 'Lato', sans-serif !important;
   background: radial-gradient(circle at center, #ECCD97 0, #DFC185 100%);
+  overflow-x: hidden;
 }
 

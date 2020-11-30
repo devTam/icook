@@ -21,3 +21,7 @@ nav {
     margin: 0;
 }
 
+svg {
+    transform: translateX(10px);
+}
+

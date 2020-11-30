@@ -19,6 +19,8 @@
     stroke: #fff;
     stroke-width: 2px;
     fill: transparent;
+    transform: translateX(30px);
+
     z-index: 1000;
     height: 130px;
     stroke-dasharray: 350px;

@@ -42,7 +42,7 @@
   
   @keyframes exit {
     to {
-      transform: translateY(20px);
+      transform: translateY(20px) translateX(30px);
       opacity: 0;
   
     }
